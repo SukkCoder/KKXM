@@ -12,7 +12,7 @@ class ToolHomeCell: UITableViewCell {
     
     static let indentifier = "Tool_Home_Cell"
     static let height: CGFloat = 85.0
-    
+    // hahahahahhahahahah
     var tool: KK_Tool? {
         didSet {
             guard let tool = tool else { return }
