@@ -92,9 +92,11 @@ class NewAccountViewController: FormViewController {
             }
         }
         
-        if self.viewModel.account == nil {
+        if self.viewModel.account == nil 
+        {
             self.viewModel.insertAccount(with: form.values())
-        } else {
+        } else 
+        {
             self.viewModel.updateAccount(with: form.values())
         }
         
