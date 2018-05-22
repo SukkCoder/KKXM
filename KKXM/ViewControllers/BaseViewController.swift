@@ -1,25 +1,25 @@
 //
-//  ViewController.swift
+//  BaseViewController.swift
 //  KKXM
 //
-//  Created by WANAN_SKK on 2018/4/9.
+//  Created by WANAN_SKK on 2018/4/10.
 //  Copyright © 2018年 KK. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class BaseViewController: UIViewController {
 
+    //MARK: - Rx
+    let disposebag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        self.view.backgroundColor = kViewBaseBackgroundColor
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-
-
 }
-
