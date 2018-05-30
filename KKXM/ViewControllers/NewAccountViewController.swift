@@ -10,10 +10,10 @@ import Eureka
 
 class NewAccountViewController: FormViewController {
     
+    private var viewModel: AccountViewModel!
+
     public var didSubmitSuccessCompleted: (() -> Void)?
     
-    private var viewModel: AccountViewModel!
-        
     //MARK: - Life cycle
     
     init(account: Account?) {
@@ -28,7 +28,7 @@ class NewAccountViewController: FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.navigationItem.title = "New Account"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(submitAccountData))
         
@@ -98,6 +98,11 @@ class NewAccountViewController: FormViewController {
         } else 
         {
             self.viewModel.updateAccount(with: form.values())
+        }
+        
+        if let completed = self.didSubmitSuccessCompleted {
+            print("成了，要回调")
+            completed()
         }
         
         self.navigationController?.popViewController(animated: true)        
