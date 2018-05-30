@@ -12,10 +12,6 @@ enum UIDeviceScreenType {
     case iPhoneX, iPhonePlus, iPhoneNormal, iPhoneSE, iPhone4, Unknown
 }
 
-enum UIDeviceType {
-    case iPhoneX, iPhone8Plus, iPhone8, iPhone7Plus, iPhone7, iPhone6sPlus, iPhone6s, iPhone6Plus, iPhone6, iPhone5s, iPhone5, iPhoneSE, iPhone4s, iPhone4, Unknown
-}
-
 extension UIDevice {
     
     /** Current Device Screen Type */
@@ -40,6 +36,4 @@ extension UIDevice {
             }
         }
     }
-    
-    
 }
