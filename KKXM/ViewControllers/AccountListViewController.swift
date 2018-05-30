@@ -65,7 +65,14 @@ class AccountListViewController: BaseViewController {
                 self?.tableView.deselectRow(at: indexPath.element!, animated: true)
                 
                 let account = self?.viewModel.selectAccount(with: (indexPath.element?.row)!)
-                self?.navigationController?.pushViewController(NewAccountViewController(account: account), animated: true)
+                
+                let newAccountVC = NewAccountViewController(account: account)
+                
+                newAccountVC.didSubmitSuccessCompleted = {
+                    
+                }
+                
+                self?.navigationController?.pushViewController(newAccountVC, animated: true)
             }
             .disposed(by: disposebag)
     }
@@ -76,17 +83,15 @@ class AccountListViewController: BaseViewController {
         self.viewModel.prepareAccounts()
             .bind(to: self.tableView.rx.items(dataSource: self.dataSource!))
             .disposed(by: disposebag)
-        
-//        self.tableView
     }
     
     @objc private func gotoNewAccountView() {
         let newAccountVC = NewAccountViewController(account: nil)
         
-        newAccountVC.didSubmitSuccessCompleted = {[weak self] in
-            self?.refreshTableView()
+        newAccountVC.didSubmitSuccessCompleted = {
+            
         }
-        
+                
         self.navigationController?.pushViewController(newAccountVC, animated: true)
     }
 }
