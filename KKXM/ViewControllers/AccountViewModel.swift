@@ -11,6 +11,12 @@ import SQLite
 
 struct AccountViewModel {
     
+    public var dataAccounts: Observable<[SectionModel<String, Account>]> {
+        get {
+            return prepareAccounts()
+        }
+    }
+    
     public var account: Account?
     
     public var accountValues: [String : Any]? {
@@ -24,9 +30,13 @@ struct AccountViewModel {
                                           "notes":acc.notes]
             return values
         }
-    } 
+    }
     
     private var db: Connection!
+    
+    func loadData() {
+        
+    }
     
     //MARK: - Init
     
